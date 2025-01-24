@@ -103,7 +103,78 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 50,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Container(
+                      color: Colors.black,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Row(
+                          children: [
+                            const Expanded(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Team',
+                                    style: TextStyle(
+                                      fontSize: 50,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Michał Boguszewski',
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Igor Faliszewski',
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Bartosz Jadczak',
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Damian Tomczak',
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Center(
+                                child: FilledButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Download',
+                                    style: TextStyle(
+                                      fontSize: 60,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               );
             },
