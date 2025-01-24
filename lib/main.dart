@@ -1,6 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:vr_art_gallery_web_page/widgets/blurred_image.dart';
+import 'package:vr_art_gallery_web_page/widgets/gradient_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,38 +35,19 @@ class MyHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: const Center(
-        child: BlurredImage(assetPath: 'images/background.jpeg'),
-      ),
-    );
-  }
-}
-
-class BlurredImage extends StatelessWidget {
-  const BlurredImage({
-    super.key,
-    required this.assetPath,
-  });
-
-  final String assetPath;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Image.asset(
-          assetPath,
-          fit: BoxFit.fill,
-          width: double.infinity,
-          height: double.infinity,
+        child: Stack(
+          children: [
+            BlurredImage(assetPath: 'images/background.jpeg'),
+            Center(
+              child: GradientText(
+                'VR Art Gallery',
+                gradient: LinearGradient(colors: [Colors.red, Colors.white]),
+                style: TextStyle(fontSize: 300),
+              ),
+            )
+          ],
         ),
-        Positioned.fill(
-            child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            color: Colors.black.withOpacity(0), // Transparent overlay
-          ),
-        ))
-      ],
+      ),
     );
   }
 }
