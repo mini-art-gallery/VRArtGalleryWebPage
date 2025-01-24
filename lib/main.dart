@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vr_art_gallery_web_page/widgets/description_item.dart';
+import 'package:vr_art_gallery_web_page/widgets/gallery.dart';
 import 'package:vr_art_gallery_web_page/widgets/paralax_scroll_view.dart';
 import 'package:vr_art_gallery_web_page/widgets/blurred_image.dart';
 import 'package:vr_art_gallery_web_page/widgets/gradient_text.dart';
@@ -78,6 +79,28 @@ class MyHomePage extends StatelessWidget {
                     ),
                     itemCount: descriptionItems.length,
                   ),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 50,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: constraints.maxWidth * 2 / 3,
+                          maxHeight: constraints.maxHeight * 2 / 3,
+                        ),
+                        child: const Gallery(
+                          photos: [
+                            'images/background.jpeg',
+                            'images/background.jpeg',
+                            'images/background.jpeg'
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               );
             },
