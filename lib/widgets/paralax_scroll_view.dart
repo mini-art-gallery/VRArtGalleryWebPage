@@ -5,17 +5,19 @@ class ParalaxScrollView extends StatefulWidget {
     super.key,
     required this.background,
     required this.foreground,
+    required this.controller,
   });
 
   final Widget background;
   final Widget foreground;
+  final ScrollController controller;
 
   @override
   State<ParalaxScrollView> createState() => _ParalaxScrollViewState();
 }
 
 class _ParalaxScrollViewState extends State<ParalaxScrollView> {
-  double scrollOffset = 0;
+  double _scrollOffset = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class _ParalaxScrollViewState extends State<ParalaxScrollView> {
       onNotification: (ScrollNotification notification) {
         if (notification is ScrollUpdateNotification) {
           setState(() {
-            scrollOffset = notification.metrics.pixels;
+            _scrollOffset = widget.controller.offset;
           });
         }
         return true;
@@ -31,7 +33,8 @@ class _ParalaxScrollViewState extends State<ParalaxScrollView> {
       child: Stack(
         children: [
           Transform.translate(
-              offset: Offset(0, -scrollOffset * 0.2), child: widget.background),
+              offset: Offset(0, -_scrollOffset * 0.2),
+              child: widget.background),
           widget.foreground,
         ],
       ),

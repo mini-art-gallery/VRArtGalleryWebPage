@@ -34,6 +34,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final descriptionItems = getDescriptionItems();
+    final scrollController = ScrollController();
 
     return Scaffold(
       appBar: AppBar(
@@ -42,10 +43,12 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: ParalaxScrollView(
+          controller: scrollController,
           background: const BlurredImage(assetPath: 'images/background.jpeg'),
           foreground: LayoutBuilder(
             builder: (context, constraints) {
               return CustomScrollView(
+                controller: scrollController,
                 slivers: [
                   SliverToBoxAdapter(
                     child: SizedBox(

@@ -10,21 +10,21 @@ class Gallery extends StatefulWidget {
 }
 
 class _GalleryState extends State<Gallery> with TickerProviderStateMixin {
-  final pageController = PageController();
-  late final TabController tabController;
-  int currentPage = 0;
+  final _pageController = PageController();
+  late final TabController _tabController;
+  int _currentPage = 0;
 
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: widget.photos.length, vsync: this);
+    _tabController = TabController(length: widget.photos.length, vsync: this);
   }
 
   @override
   void dispose() {
     super.dispose();
-    pageController.dispose();
-    tabController.dispose();
+    _pageController.dispose();
+    _tabController.dispose();
   }
 
   @override
@@ -43,14 +43,14 @@ class _GalleryState extends State<Gallery> with TickerProviderStateMixin {
                 padding: const EdgeInsets.fromLTRB(60, 10, 60, 5),
                 child: Stack(children: [
                   PageView(
-                    controller: pageController,
+                    controller: _pageController,
                     children: widget.photos.map((p) => Image.asset(p)).toList(),
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
                       onPressed: () {
-                        _updateCurrentPage(currentPage - 1);
+                        _updateCurrentPage(_currentPage - 1);
                       },
                       icon: const Icon(Icons.arrow_left),
                       color: Colors.white,
@@ -61,7 +61,7 @@ class _GalleryState extends State<Gallery> with TickerProviderStateMixin {
                     alignment: Alignment.centerRight,
                     child: IconButton(
                       onPressed: () {
-                        _updateCurrentPage(currentPage + 1);
+                        _updateCurrentPage(_currentPage + 1);
                       },
                       icon: const Icon(Icons.arrow_right),
                       color: Colors.white,
@@ -75,7 +75,7 @@ class _GalleryState extends State<Gallery> with TickerProviderStateMixin {
           Padding(
             padding: const EdgeInsets.all(10),
             child: TabPageSelector(
-              controller: tabController,
+              controller: _tabController,
             ),
           ),
         ],
@@ -89,13 +89,13 @@ class _GalleryState extends State<Gallery> with TickerProviderStateMixin {
     }
 
     setState(() {
-      tabController.index = index;
-      pageController.animateToPage(
+      _tabController.index = index;
+      _pageController.animateToPage(
         index,
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeInOut,
       );
-      currentPage = index;
+      _currentPage = index;
     });
   }
 }
