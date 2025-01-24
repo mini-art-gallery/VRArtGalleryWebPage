@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vr_art_gallery_web_page/widgets/paralax_scroll_view.dart';
 import 'package:vr_art_gallery_web_page/widgets/blurred_image.dart';
 import 'package:vr_art_gallery_web_page/widgets/gradient_text.dart';
 
@@ -35,20 +36,58 @@ class MyHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: Stack(
-          children: [
-            const BlurredImage(assetPath: 'images/background.jpeg'),
-            Center(
-              child: LayoutBuilder(builder: (context, constraints) {
-                return GradientText(
-                  'VR Art Gallery',
-                  gradient:
-                      const LinearGradient(colors: [Colors.red, Colors.white]),
-                  style: TextStyle(fontSize: constraints.maxWidth / 8),
-                );
-              }),
-            )
-          ],
+        child: ParalaxScrollView(
+          background: const BlurredImage(assetPath: 'images/background.jpeg'),
+          foreground: LayoutBuilder(
+            builder: (context, constraints) {
+              return CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: constraints.maxHeight,
+                      width: constraints.maxWidth,
+                      child: Center(
+                        child: GradientText(
+                          'VR Art Gallery',
+                          gradient: const LinearGradient(
+                              colors: [Colors.red, Colors.white]),
+                          style: TextStyle(fontSize: constraints.maxWidth / 8),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: constraints.maxHeight,
+                      width: constraints.maxWidth,
+                      child: Center(
+                        child: GradientText(
+                          'VR Art Gallery',
+                          gradient: const LinearGradient(
+                              colors: [Colors.red, Colors.white]),
+                          style: TextStyle(fontSize: constraints.maxWidth / 8),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: constraints.maxHeight,
+                      width: constraints.maxWidth,
+                      child: Center(
+                        child: GradientText(
+                          'VR Art Gallery',
+                          gradient: const LinearGradient(
+                              colors: [Colors.red, Colors.white]),
+                          style: TextStyle(fontSize: constraints.maxWidth / 8),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
