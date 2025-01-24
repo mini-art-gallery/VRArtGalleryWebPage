@@ -34,16 +34,19 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: const Center(
+      body: Center(
         child: Stack(
           children: [
-            BlurredImage(assetPath: 'images/background.jpeg'),
+            const BlurredImage(assetPath: 'images/background.jpeg'),
             Center(
-              child: GradientText(
-                'VR Art Gallery',
-                gradient: LinearGradient(colors: [Colors.red, Colors.white]),
-                style: TextStyle(fontSize: 300),
-              ),
+              child: LayoutBuilder(builder: (context, constraints) {
+                return GradientText(
+                  'VR Art Gallery',
+                  gradient:
+                      const LinearGradient(colors: [Colors.red, Colors.white]),
+                  style: TextStyle(fontSize: constraints.maxWidth / 8),
+                );
+              }),
             )
           ],
         ),
