@@ -21,15 +21,13 @@ class MyApp extends StatelessWidget {
             seedColor: Colors.deepPurple, brightness: Brightness.dark),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +37,14 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
+        title: const Text('VR Art Gallery'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child:
+                FilledButton(onPressed: () {}, child: const Text('Download')),
+          )
+        ],
       ),
       body: Center(
         child: ParalaxScrollView(
@@ -55,11 +60,31 @@ class MyHomePage extends StatelessWidget {
                       height: constraints.maxHeight,
                       width: constraints.maxWidth,
                       child: Center(
-                        child: GradientText(
-                          'VR Art Gallery',
-                          gradient: const LinearGradient(
-                              colors: [Colors.red, Colors.white]),
-                          style: TextStyle(fontSize: constraints.maxWidth / 8),
+                        child: Column(
+                          children: [
+                            Flexible(
+                              flex: 3,
+                              child: Center(
+                                child: GradientText(
+                                  'VR Art Gallery',
+                                  gradient: const LinearGradient(
+                                      colors: [Colors.red, Colors.white]),
+                                  style: TextStyle(
+                                      fontSize: constraints.maxWidth / 8),
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                              flex: 2,
+                              child: FilledButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Download',
+                                    style: TextStyle(
+                                        fontSize: constraints.maxWidth / 15),
+                                  )),
+                            )
+                          ],
                         ),
                       ),
                     ),
