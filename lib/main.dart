@@ -5,7 +5,14 @@ import 'package:vr_art_gallery_web_page/widgets/paralax_scroll_view.dart';
 import 'package:vr_art_gallery_web_page/widgets/blurred_image.dart';
 import 'package:vr_art_gallery_web_page/widgets/gradient_text.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
