@@ -56,7 +56,7 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: ParalaxScrollView(
           controller: scrollController,
-          background: const BlurredImage(assetPath: 'images/background.jpeg'),
+          background: const BlurredImage(assetPath: 'images/image1.jpg'),
           foreground: LayoutBuilder(
             builder: (context, constraints) {
               return CustomScrollView(
@@ -128,9 +128,10 @@ class MyHomePage extends StatelessWidget {
                         ),
                         child: const Gallery(
                           photos: [
-                            'images/background.jpeg',
-                            'images/background.jpeg',
-                            'images/background.jpeg'
+                            'images/image1.jpg',
+                            'images/image1.jpg',
+                            'images/image2.jpg',
+                            'images/image3.jpg'
                           ],
                         ),
                       ),
@@ -219,36 +220,20 @@ class MyHomePage extends StatelessWidget {
 
 List<(String title, String text, String imagePath)> getDescriptionItems() {
   return [
-    ('Title 1', 'text 1', 'images/background.jpeg'),
     (
-      'Lorem Ipsum',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula sed massa commodo lobortis vel ornare risus. Aliquam porta orci non sem tincidunt eleifend. Praesent in arcu quam. Fusce eu arcu auctor, mattis magna in, mattis purus. Etiam iaculis dignissim ultrices. Aenean egestas vel nisl et vehicula. Duis nisl risus, finibus at accumsan varius, convallis ullamcorper odio. Suspendisse potenti. Vivamus quam erat, viverra sed arcu sed, faucibus consectetur nunc. Cras fermentum sit amet felis sit amet porttitor. Maecenas cursus quis eros vitae faucibus.',
-      'images/background.jpeg'
+      'Wirtualna Galeria Sztuki – Projekt Studentów MiNI PW',
+      'Wirtualna galeria sztuki to innowacyjny projekt stworzony przez czterech studentów wydziału Matematyki i Nauk Informacyjnych Politechniki Warszawskiej. Stworzona w Unreal Engine aplikacja łączy świat wirtualnej rzeczywistości z narzędziami kreatywnymi, umożliwiając użytkownikom projektowanie i zwiedzanie przestrzeni artystycznych. Projekt oferuje dwa tryby: edycji oraz zwiedzania. W trybie edycji, na komputerze bez konieczności użycia gogli VR, można aranżować pokoje o dowolnym rozmiarze, dodawać obrazy, obiekty 3D i plakietki z opisami. Z kolei w trybie zwiedzania użytkownicy mogą eksplorować stworzone galerie w pełnym wymiarze VR, ciesząc się interaktywnym doświadczeniem. Aplikacja pozwala także zapisywać oraz wczytywać stworzone przestrzenie, co czyni ją idealnym narzędziem dla pasjonatów sztuki.',
+      'images/image1.jpg'
     ),
     (
-      'Lorem Ipsum',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula sed massa commodo lobortis vel ornare risus. Aliquam porta orci non sem tincidunt eleifend. Praesent in arcu quam. Fusce eu arcu auctor, mattis magna in, mattis purus. Etiam iaculis dignissim ultrices. Aenean egestas vel nisl et vehicula. Duis nisl risus, finibus at accumsan varius, convallis ullamcorper odio. Suspendisse potenti. Vivamus quam erat, viverra sed arcu sed, faucibus consectetur nunc. Cras fermentum sit amet felis sit amet porttitor. Maecenas cursus quis eros vitae faucibus.',
-      'images/background.jpeg'
+      'Dwa Światy Jednej Aplikacji: Edycja i Zwiedzanie',
+      'Projekt wirtualnej galerii sztuki daje użytkownikom swobodę tworzenia oraz możliwość immersyjnego zwiedzania. W trybie edycji użytkownik ma do dyspozycji intuicyjne narzędzia do projektowania przestrzeni artystycznych – od ustawienia rozmiaru pokoju, poprzez rozmieszczenie obrazów i obiektów, aż po dodanie opisów. Co więcej, aplikacja umożliwia zapis i wczytywanie wcześniej zaprojektowanych pokoi, co pozwala na ciągłe doskonalenie swojego projektu. Drugi tryb – zwiedzanie – przenosi użytkownika do świata VR, w którym może eksplorować zaprojektowaną przestrzeń w pełni immersyjny sposób dzięki goglom VR. To wyjątkowe połączenie technologii i sztuki.',
+      'images/image2.jpg'
     ),
     (
-      'Lorem Ipsum',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula sed massa commodo lobortis vel ornare risus. Aliquam porta orci non sem tincidunt eleifend. Praesent in arcu quam. Fusce eu arcu auctor, mattis magna in, mattis purus. Etiam iaculis dignissim ultrices. Aenean egestas vel nisl et vehicula. Duis nisl risus, finibus at accumsan varius, convallis ullamcorper odio. Suspendisse potenti. Vivamus quam erat, viverra sed arcu sed, faucibus consectetur nunc. Cras fermentum sit amet felis sit amet porttitor. Maecenas cursus quis eros vitae faucibus.',
-      'images/background.jpeg'
-    ),
-    (
-      'Lorem Ipsum',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula sed massa commodo lobortis vel ornare risus. Aliquam porta orci non sem tincidunt eleifend. Praesent in arcu quam. Fusce eu arcu auctor, mattis magna in, mattis purus. Etiam iaculis dignissim ultrices. Aenean egestas vel nisl et vehicula. Duis nisl risus, finibus at accumsan varius, convallis ullamcorper odio. Suspendisse potenti. Vivamus quam erat, viverra sed arcu sed, faucibus consectetur nunc. Cras fermentum sit amet felis sit amet porttitor. Maecenas cursus quis eros vitae faucibus.',
-      'images/background.jpeg'
-    ),
-    (
-      'Lorem Ipsum',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula sed massa commodo lobortis vel ornare risus. Aliquam porta orci non sem tincidunt eleifend. Praesent in arcu quam. Fusce eu arcu auctor, mattis magna in, mattis purus. Etiam iaculis dignissim ultrices. Aenean egestas vel nisl et vehicula. Duis nisl risus, finibus at accumsan varius, convallis ullamcorper odio. Suspendisse potenti. Vivamus quam erat, viverra sed arcu sed, faucibus consectetur nunc. Cras fermentum sit amet felis sit amet porttitor. Maecenas cursus quis eros vitae faucibus.',
-      'images/background.jpeg'
-    ),
-    (
-      'Lorem Ipsum',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula sed massa commodo lobortis vel ornare risus. Aliquam porta orci non sem tincidunt eleifend. Praesent in arcu quam. Fusce eu arcu auctor, mattis magna in, mattis purus. Etiam iaculis dignissim ultrices. Aenean egestas vel nisl et vehicula. Duis nisl risus, finibus at accumsan varius, convallis ullamcorper odio. Suspendisse potenti. Vivamus quam erat, viverra sed arcu sed, faucibus consectetur nunc. Cras fermentum sit amet felis sit amet porttitor. Maecenas cursus quis eros vitae faucibus.',
-      'images/background.jpeg'
-    ),
+      'Nowoczesne Narzędzie dla Twórców i Entuzjastów Sztuki',
+      'Wirtualna galeria sztuki to projekt, który doskonale wpisuje się w potrzeby współczesnych twórców i miłośników sztuki. Dzięki wykorzystaniu Unreal Engine, aplikacja oferuje realistyczne odwzorowanie przestrzeni w wirtualnej rzeczywistości. Tryb edycji pozwala na szczegółowe zaprojektowanie galerii, dostosowanie każdego elementu i zapis projektu. Zwiedzanie galerii w VR to z kolei możliwość przeniesienia się w stworzone przestrzenie i doświadczenie ich w pełnym wymiarze. Projekt ten nie tylko promuje nowe technologie, ale również umożliwia artystom i projektantom testowanie swoich pomysłów w wirtualnym środowisku, zanim przeniosą je do świata rzeczywistego.',
+      'images/image3.jpg'
+    )
   ];
 }
