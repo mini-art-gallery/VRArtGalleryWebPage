@@ -9,8 +9,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:html';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,25 +18,8 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    if (kIsWeb) {
-      LinkElement link = (document.querySelector("link[rel*='icon']") ??
-          document.createElement('link')) as LinkElement;
-      link.type = 'image/x-icon';
-      link.rel = 'shortcut icon';
-      link.href = 'images/icon.png';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
