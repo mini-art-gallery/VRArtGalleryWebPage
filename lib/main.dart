@@ -8,6 +8,8 @@ import 'package:vr_art_gallery_web_page/widgets/gradient_text.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -48,8 +50,8 @@ class MyHomePage extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8),
-            child:
-                FilledButton(onPressed: () {}, child: const Text('Download')),
+            child: FilledButton(
+                onPressed: () => _launchUrl(), child: const Text('Download')),
           )
         ],
       ),
@@ -84,7 +86,7 @@ class MyHomePage extends StatelessWidget {
                             Flexible(
                               flex: 2,
                               child: FilledButton(
-                                  onPressed: () {},
+                                  onPressed: () => _launchUrl(),
                                   child: Text(
                                     'Download',
                                     style: TextStyle(
@@ -193,7 +195,7 @@ class MyHomePage extends StatelessWidget {
                             Expanded(
                               child: Center(
                                 child: FilledButton(
-                                  onPressed: () {},
+                                  onPressed: () => _launchUrl(),
                                   child: const Text(
                                     'Download',
                                     style: TextStyle(
@@ -215,6 +217,15 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+final Uri _url =
+    Uri.parse('https://github.com/mini-art-gallery/VRArtGallery/releases');
+
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
   }
 }
 
